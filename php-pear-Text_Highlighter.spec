@@ -9,12 +9,12 @@
 Summary:	%{_pearname} - Syntax highlighting
 Summary(pl):	%{_pearname} - Pod¶wietlanie sk³adni
 Name:		php-pear-%{_pearname}
-Version:	0.6.1
-Release:	3
+Version:	0.6.2
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	784e35cb23cf806998aa65a6d81e525a
+# Source0-md5:	eea732e949f8f5d2892e0163ac55ec0d
 URL:		http://pear.php.net/package/Text_Highlighter/
 BuildRequires:	rpm-php-pearprov >= 4.0.2-98
 Requires:	php-pear
