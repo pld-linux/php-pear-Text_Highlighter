@@ -1,5 +1,4 @@
 # ToDo:
-# - pl description
 # - think about renaming generate script
 %include	/usr/lib/rpm/macros.php
 %define         _class          Text
@@ -25,25 +24,36 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Text_Highlighter is a package for syntax highlighting.
 
-It provides a base class providing all the functionality,
-and a descendent classes geneator class.
+It provides a base class providing all the functionality, and a
+descendent classes geneator class.
 
-The main idea is to simplify creation of subclasses
-implementing syntax highlighting for particular language.
-Subclasses do not implement any new functioanality,
-they just provide syntax highlighting rules.
-The rules sources are in XML format.
+The main idea is to simplify creation of subclasses implementing
+syntax highlighting for particular language. Subclasses do not
+implement any new functionality, they just provide syntax
+highlighting rules. The rules sources are in XML format.
 
-To create a highlighter for a language, there is no need
-to code a new class manually. Simply describe the rules
-in XML file and use Text_Highlighter_Generator to create
-a new class.
+To create a highlighter for a language, there is no need to code a new
+class manually. Simply describe the rules in XML file and use
+Text_Highlighter_Generator to create a new class.
 
 In PEAR status of this package is: %{_status}.
 
-#%description -l pl
-#
-#Ta klasa ma w PEAR status: %{_status}.
+%description -l pl
+Text_Highlighter to pakiet do pod¶wietlania sk³adni.
+
+Zawiera klasê bazow± dostarczaj±c± ca³± funkcjonalno¶æ i klasê
+generuj±c± klasy dziedzicz±ce.
+
+G³ówn± ide± jest uproszczenie tworzenia podklas implementuj±cych
+pod¶wietlanie sk³adni dla danego jêzyka. Podklasy nie implementuj±
+¿adnej nowej funkcjonalno¶ci, a jedynie dostarczaj± regu³y
+pod¶wietlania sk³adni. ¬ród³a regu³ s± w formacie XML.
+
+Aby stworzyæ pod¶wietlanie dla jêzyka, nie trzeba kodowaæ rêcznie
+nowej klasy. Wystarczy opisaæ regu³y w pliku XML i u¿yæ
+Text_Highlighter_Generator, aby utworzyæ now± klasê.
+
+Ta klasa ma w PEAR status: %{_status}.
 
 %prep
 %setup -q -c
