@@ -1,8 +1,8 @@
 # ToDo:
 # - think about renaming generate script
 %include	/usr/lib/rpm/macros.php
-%define         _class          Text
-%define         _subclass       Highlighter
+%define		_class		Text
+%define		_subclass	Highlighter
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
 
