@@ -10,7 +10,7 @@ Summary:	%{_pearname} - Syntax highlighting
 Summary(pl):	%{_pearname} - Pod¶wietlanie sk³adni
 Name:		php-pear-%{_pearname}
 Version:	0.6.1
-Release:	2
+Release:	3
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -59,18 +59,17 @@ Ta klasa ma w PEAR status: %{_status}.
 %setup -q -c
 
 %build
-cd %{_pearname}-%{version}
-sed 's,@php_bin@,%{_bindir}/php,' generate > a
-mv -f a generate
+sed -i -e 's,@php_bin@,%{_bindir}/php,' %{_pearname}-%{version}/generate
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{php_pear_dir}/%{_class}/%{_subclass}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{php_pear_dir}/%{_class}/%{_subclass}/Renderer}
 
 install %{_pearname}-%{version}/generate $RPM_BUILD_ROOT%{_bindir}
 install %{_pearname}-%{version}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
 install %{_pearname}-%{version}/*.xml $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
 install %{_pearname}-%{version}/%{_subclass}/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}
+install %{_pearname}-%{version}/%{_subclass}/Renderer/*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}/%{_subclass}/Renderer
 
 %clean
 rm -rf $RPM_BUILD_ROOT
