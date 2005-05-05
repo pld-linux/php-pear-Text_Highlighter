@@ -6,8 +6,8 @@
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
 
-Summary:	%{_pearname} - Syntax highlighting
-Summary(pl):	%{_pearname} - Pod¶wietlanie sk³adni
+Summary:	%{_pearname} - syntax highlighting
+Summary(pl):	%{_pearname} - pod¶wietlanie sk³adni
 Name:		php-pear-%{_pearname}
 Version:	0.6.5
 Release:	1
@@ -29,8 +29,8 @@ descendent classes geneator class.
 
 The main idea is to simplify creation of subclasses implementing
 syntax highlighting for particular language. Subclasses do not
-implement any new functionality, they just provide syntax
-highlighting rules. The rules sources are in XML format.
+implement any new functionality, they just provide syntax highlighting
+rules. The rules sources are in XML format.
 
 To create a highlighter for a language, there is no need to code a new
 class manually. Simply describe the rules in XML file and use
