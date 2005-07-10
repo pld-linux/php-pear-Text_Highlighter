@@ -1,5 +1,6 @@
-# ToDo:
+# TODO:
 # - think about renaming generate script
+# - error: php-pear-Text_Highlighter-0.6.5-1 (cnfl rails = 0.12.1-1) conflicts with installed rails-0.12.1-1
 %include	/usr/lib/rpm/macros.php
 %define		_class		Text
 %define		_subclass	Highlighter
