@@ -7,7 +7,7 @@
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
 Summary:	%{_pearname} - syntax highlighting
-Summary(pl.UTF-8):   %{_pearname} - podświetlanie składni
+Summary(pl.UTF-8):	%{_pearname} - podświetlanie składni
 Name:		php-pear-%{_pearname}
 Version:	0.6.9
 Release:	1
