@@ -7,7 +7,7 @@
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
 Summary:	%{_pearname} - syntax highlighting
-Summary(pl):	%{_pearname} - pod¶wietlanie sk³adni
+Summary(pl.UTF-8):   %{_pearname} - podÅ›wietlanie skÅ‚adni
 Name:		php-pear-%{_pearname}
 Version:	0.6.9
 Release:	1
@@ -44,20 +44,20 @@ Text_Highlighter_Generator to create a new class.
 
 In PEAR status of this package is: %{_status}.
 
-%description -l pl
-Text_Highlighter to pakiet do pod¶wietlania sk³adni.
+%description -l pl.UTF-8
+Text_Highlighter to pakiet do podÅ›wietlania skÅ‚adni.
 
-Zawiera klasê bazow± dostarczaj±c± ca³± funkcjonalno¶æ i klasê
-generuj±c± klasy dziedzicz±ce.
+Zawiera klasÄ™ bazowÄ… dostarczajÄ…cÄ… caÅ‚Ä… funkcjonalnoÅ›Ä‡ i klasÄ™
+generujÄ…cÄ… klasy dziedziczÄ…ce.
 
-G³ówn± ide± jest uproszczenie tworzenia podklas implementuj±cych
-pod¶wietlanie sk³adni dla danego jêzyka. Podklasy nie implementuj±
-¿adnej nowej funkcjonalno¶ci, a jedynie dostarczaj± regu³y
-pod¶wietlania sk³adni. ¬ród³a regu³ s± w formacie XML.
+GÅ‚Ã³wnÄ… ideÄ… jest uproszczenie tworzenia podklas implementujÄ…cych
+podÅ›wietlanie skÅ‚adni dla danego jÄ™zyka. Podklasy nie implementujÄ…
+Å¼adnej nowej funkcjonalnoÅ›ci, a jedynie dostarczajÄ… reguÅ‚y
+podÅ›wietlania skÅ‚adni. Å¹rÃ³dÅ‚a reguÅ‚ sÄ… w formacie XML.
 
-Aby stworzyæ pod¶wietlanie dla jêzyka, nie trzeba kodowaæ rêcznie
-nowej klasy. Wystarczy opisaæ regu³y w pliku XML i u¿yæ
-Text_Highlighter_Generator, aby utworzyæ now± klasê.
+Aby stworzyÄ‡ podÅ›wietlanie dla jÄ™zyka, nie trzeba kodowaÄ‡ rÄ™cznie
+nowej klasy. Wystarczy opisaÄ‡ reguÅ‚y w pliku XML i uÅ¼yÄ‡
+Text_Highlighter_Generator, aby utworzyÄ‡ nowÄ… klasÄ™.
 
 Ta klasa ma w PEAR status: %{_status}.
 
