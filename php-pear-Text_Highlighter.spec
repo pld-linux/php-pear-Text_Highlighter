@@ -9,12 +9,12 @@
 Summary:	%{_pearname} - syntax highlighting
 Summary(pl.UTF-8):	%{_pearname} - podświetlanie składni
 Name:		php-pear-%{_pearname}
-Version:	0.6.9
+Version:	0.7.0
 Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	59f4f5b8cd666b5126e972ed96fd629c
+# Source0-md5:	66c15ab304c389fa63c9471106bfcd78
 URL:		http://pear.php.net/package/Text_Highlighter/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -68,7 +68,6 @@ Ta klasa ma w PEAR status: %{_status}.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{php_pear_dir}}
 %pear_package_install
-install ./%{_bindir}/%{_class}/%{_subclass}/generate $RPM_BUILD_ROOT%{_bindir}/generate
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -77,7 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc install.log
 %doc docs/%{_pearname}/*
-%attr(755,root,root) %{_bindir}/*
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/*.php
 %{php_pear_dir}/%{_class}/%{_subclass}
