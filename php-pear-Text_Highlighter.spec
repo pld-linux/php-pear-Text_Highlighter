@@ -1,20 +1,20 @@
 # TODO:
 # - think about renaming generate script
 # - error: php-pear-Text_Highlighter-0.6.5-1 (cnfl rails = 0.12.1-1) conflicts with installed rails-0.12.1-1
-%include	/usr/lib/rpm/macros.php
 %define		_class		Text
 %define		_subclass	Highlighter
 %define		_status		beta
 %define		_pearname	%{_class}_%{_subclass}
+%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - syntax highlighting
 Summary(pl.UTF-8):	%{_pearname} - podświetlanie składni
 Name:		php-pear-%{_pearname}
-Version:	0.7.1
-Release:	2
+Version:	0.7.3
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	9a95e112019e3e483a523045ef698aa6
+# Source0-md5:	c829df65c5bc1f72dd3e0119704f7468
 URL:		http://pear.php.net/package/Text_Highlighter/
 BuildRequires:	php-pear-PEAR >= 1:1.4.0-0.b1
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
