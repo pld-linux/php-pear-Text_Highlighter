@@ -1,6 +1,5 @@
 %define		_status		beta
 %define		_pearname	Text_Highlighter
-%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - syntax highlighting
 Summary(pl.UTF-8):	%{_pearname} - podświetlanie składni
 Name:		php-pear-%{_pearname}
