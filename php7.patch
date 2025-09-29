@@ -1,0 +1,100 @@
+diff -ur Text_Highlighter-0.8.0.org/Text/Highlighter/Generator.php Text_Highlighter-0.8.0/Text/Highlighter/Generator.php
+--- Text_Highlighter-0.8.0.org/Text/Highlighter/Generator.php	2017-03-07 22:13:54.000000000 +0100
++++ Text_Highlighter-0.8.0/Text/Highlighter/Generator.php	2025-09-29 15:53:49.653258176 +0200
+@@ -439,7 +439,7 @@
+         if (!strlen($text)) {
+             $this->_error(TEXT_HIGHLIGHTER_EMPTY_RE);
+         }
+-        if (!strlen($text) || $text{0} != '/') {
++        if (!strlen($text) || $text[0] != '/') {
+             $text = '/' . $text . '/';
+         }
+         if (!$case) {
+diff -ur Text_Highlighter-0.8.0.org/Text/Highlighter/Renderer/Html.php Text_Highlighter-0.8.0/Text/Highlighter/Renderer/Html.php
+--- Text_Highlighter-0.8.0.org/Text/Highlighter/Renderer/Html.php	2017-03-07 22:13:54.000000000 +0100
++++ Text_Highlighter-0.8.0/Text/Highlighter/Renderer/Html.php	2025-09-29 15:52:50.446643521 +0200
+@@ -158,9 +158,9 @@
+     /**
+      * Highlighted code
+      *
+-     * @var string
++     * @var array
+      */
+-    var $_output = '';
++    var $_output = array();
+ 
+     /**
+      * Mapping of keywords to formatting rules using inline styles
+@@ -224,7 +224,7 @@
+      */
+     function reset()
+     {
+-        $this->_output = '';
++        $this->_output = array();
+         if (isset($this->_options['numbers'])) {
+             $this->_numbers = (int)$this->_options['numbers'];
+             if ($this->_numbers != HL_NUMBERS_LI
+@@ -342,7 +342,7 @@
+ 
+             // additional whitespace for browsers that do not display
+             // empty list items correctly
+-            $this->_output = '<li>&nbsp;' . $html_output . '</li>';
++            $this->_output = array('<li>&nbsp;' . $html_output . '</li>');
+ 
+             $start = '';
+             if ($this->_numbers == HL_NUMBERS_OL && intval($this->_numbers_start) > 0)  {
+@@ -355,9 +355,11 @@
+             }
+ 
+ 
+-            $this->_output = '<' . $list_tag . $start
+-                             . ' ' . $this->_getStyling('main', false) . '>'
+-                             . $this->_output . '</'. $list_tag .'>';
++            $start = array('<' . $list_tag . $start
++                . ' ' . $this->_getStyling('main', false) . '>');
++
++            $end = array('</'. $list_tag .'>');
++            $this->_output = array_merge($start, $this->_output, $end);
+ 
+         // render a table
+         } else if ($this->_numbers == HL_NUMBERS_TABLE) {
+@@ -374,16 +376,16 @@
+             for ($i=1; $i <= $nlines; $i++) {
+                 $numbers .= ($start_number + $i) . "\n";
+             }
+-            $this->_output = '<table ' . $this->_getStyling('table', false) . ' width="100%"><tr>' .
++            $this->_output = array('<table ' . $this->_getStyling('table', false) . ' width="100%"><tr>' .
+                              '<td '. $this->_getStyling('gutter', false) .' align="right" valign="top">' .
+                              '<pre>' . $numbers . '</pre></td><td '. $this->_getStyling('main', false) .
+                              ' valign="top"><pre>' .
+-                             $html_output . '</pre></td></tr></table>';
++                             $html_output . '</pre></td></tr></table>');
+         }
+         if (!$this->_numbers) {
+-            $this->_output = '<pre>' . $html_output . '</pre>';
++            $this->_output = array('<pre>' . $html_output . '</pre>');
+         }
+-        $this->_output = '<div ' . $this->_getStyling('main', false) . '>' . $this->_output . '</div>';
++        $this->_output = array_merge(array('<div ' . $this->_getStyling('main', false) . '>'), $this->_output, array('</div>'));
+     }
+ 
+ 
+@@ -452,6 +454,18 @@
+         }
+ 
+     }
++
++    /**
++     * Get generated output
++     *
++     * @abstract
++     * @return array Highlighted code as an string
++     * @access public
++     */
++    function getOutput()
++    {
++        return implode("", $this->_output);
++    }
+ }
+ 
+ /*
